@@ -3,9 +3,11 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "../components/Home";
 import Login from "../components/Login";
+import PriveteRoute from "../components/PriveteRoute";
 import Register from "../components/Register";
 import Root from "../components/Root";
 import AuthProvider from "../ContextApi/AuthProvider";
+import Orders from "./../components/Orders";
 import "./index.css";
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/orders",
+        element: (
+          <PriveteRoute>
+            <Orders />
+          </PriveteRoute>
+        ),
       },
     ],
   },
