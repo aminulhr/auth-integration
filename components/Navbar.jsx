@@ -60,7 +60,10 @@ const Navbar = () => {
       <div>
         {user ? (
           <>
-            <textarea className="textarea textarea-success" placeholder="Bio">
+            <textarea
+              className="textarea textarea-success w-30"
+              placeholder="Bio"
+            >
               {user.email}
             </textarea>
             <a
