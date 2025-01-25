@@ -1,9 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Dashboard from "../components/Dashboard";
 import Home from "../components/Home";
 import Login from "../components/Login";
 import PriveteRoute from "../components/PriveteRoute";
+import Profile from "../components/Profile";
 import Register from "../components/Register";
 import Root from "../components/Root";
 import AuthProvider from "../ContextApi/AuthProvider";
@@ -31,6 +33,22 @@ const router = createBrowserRouter([
         element: (
           <PriveteRoute>
             <Orders />
+          </PriveteRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PriveteRoute>
+            <Profile />
+          </PriveteRoute>
+        ),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PriveteRoute>
+            <Dashboard />
           </PriveteRoute>
         ),
       },

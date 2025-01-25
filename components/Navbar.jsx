@@ -20,14 +20,24 @@ const Navbar = () => {
       <li>
         <NavLink to="/register">Register</NavLink>
       </li>
-      <li>
-        <NavLink to="/orders">Orders</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/orders">Orders</NavLink>
+          </li>
+          <li>
+            <NavLink to="/profile">profile</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard">Dashboard</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
     <div className="navbar bg-base-100 fixed top-0  z-50">
-      <div className="navbar-start">
+      <div className="w-96 ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -60,12 +70,7 @@ const Navbar = () => {
       <div>
         {user ? (
           <>
-            <textarea
-              className="textarea textarea-success w-30"
-              placeholder="Bio"
-            >
-              {user.email}
-            </textarea>
+            <p>{user.email}</p>
             <a
               onClick={handleLogOut}
               className="btn btn-outline btn-warning ml-4"

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../ContextApi/AuthProvider";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, signInWighGoolge } = useContext(AuthContext);
   const navitate = useNavigate();
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -16,6 +16,11 @@ const Login = () => {
         e.target.reset();
         navitate("/");
       })
+      .catch((error) => console.log(error));
+  };
+  const handlegoogle = () => {
+    signInWighGoolge()
+      .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
   return (
@@ -56,6 +61,11 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
+              </div>
+              <div className="form-control mt-6">
+                <button onClick={handlegoogle} className="btn btn-primary">
+                  Google
+                </button>
               </div>
               <Link to="/register">
                 <a className="link link-accent">Crate an Account</a>
