@@ -11,6 +11,7 @@ import { createContext, useEffect, useState } from "react";
 import auth from "./../firebase.config";
 export const AuthContext = createContext(null);
 const googleprovider = new GoogleAuthProvider();
+
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
@@ -23,6 +24,7 @@ const AuthProvider = ({ children }) => {
     setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+
   const signInWighGoolge = () => {
     setLoader(true);
     return signInWithPopup(auth, googleprovider);

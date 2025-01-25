@@ -23,6 +23,7 @@ const Login = () => {
       .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
+
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
@@ -67,6 +68,7 @@ const Login = () => {
                   Google
                 </button>
               </div>
+
               <Link to="/register">
                 <a className="link link-accent">Crate an Account</a>
               </Link>
